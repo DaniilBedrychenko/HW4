@@ -109,6 +109,30 @@ int main() {
         }
         break;
     }
+    case 8: {
+        int index, newValue;
+        cout << "Введіть індекс (0-" << actualSize << "): ";
+        cin >> index;
+        if (index < 0 || index > actualSize) {
+            cout << "Невірний індекс.\n";
+            break;
+        }
+        cout << "Введіть нове число: ";
+        cin >> newValue;
+
+        // Посунення вправо
+        for (int i = actualSize; i > index; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[index] = newValue;
+        actualSize++; // Збільшуємо розмір
+
+        cout << "Новий масив:\n";
+        for (int i = 0; i < actualSize; i++) {
+            cout << arr[i] << " ";
+        }
+        break;
+    }
 
     default:
         cout << "Невірний вибір.\n";
